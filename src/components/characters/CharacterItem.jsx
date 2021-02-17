@@ -1,0 +1,70 @@
+import React from 'react';
+import { makeStyles, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import Button from '@material-ui/core/Button';
+import { green } from '@material-ui/core/colors';
+import RestaurantMenuOutlinedIcon from '@material-ui/icons/RestaurantMenuOutlined';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    maxWidth: '345!important',
+    boxShadow: "1px 1px 4px 4px rgba(0, 230, 64, 1)",
+    backgroundColor: 'black',
+    color: 'green'
+  },
+  media: {
+    height: 500,
+    paddingTop: '56.25%', // 16:9
+  },
+  heading: {
+    backgroundColor: 'black',
+    color: 'rgb(17, 182, 17)'
+  },
+  button: {
+    margin: theme.spacing(1),
+  }
+}));
+
+const theme = createMuiTheme({
+  palette: {
+    primary: green,
+  },
+});
+
+export default function CharacterItem({ character }) {
+  const classes = useStyles();
+
+  return (
+    <Card className={classes.root}>
+      <CardHeader
+        className={classes.heading}
+        title={character.name}
+
+      />
+
+      <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image={character.img}
+          title={character.name}
+        />
+      </CardActionArea>
+      <CardContent className={classes.heading}>
+        <ThemeProvider theme={theme}>
+          <Button
+            variant="outlined" color="primary" className={classes.button}
+            startIcon={<RestaurantMenuOutlinedIcon />}
+          >
+            Let's Cook B***h
+        </Button>
+        </ThemeProvider>
+      </CardContent>
+
+    </Card>
+
+  );
+}
