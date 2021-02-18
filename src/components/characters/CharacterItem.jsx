@@ -8,6 +8,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import Button from '@material-ui/core/Button';
 import { green } from '@material-ui/core/colors';
 import RestaurantMenuOutlinedIcon from '@material-ui/icons/RestaurantMenuOutlined';
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -55,11 +56,14 @@ export default function CharacterItem({ character }) {
       </CardActionArea>
       <CardContent className={classes.heading}>
         <ThemeProvider theme={theme}>
-          <Button
+          <Button 
+            component={ Link }
+            to={`/character/${character.char_id}`}
             variant="outlined" color="primary" className={classes.button}
             startIcon={<RestaurantMenuOutlinedIcon />}
           >
             Let's Cook B***h
+            
         </Button>
         </ThemeProvider>
       </CardContent>

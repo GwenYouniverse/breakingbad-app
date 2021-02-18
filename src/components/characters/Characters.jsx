@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { listCharacters } from '../../actions/characterActions'
-import { Col, Row } from 'react-bootstrap';
 import CharacterItem from './CharacterItem'
 import Loader from '../ui/Loader'
 import { Grid, Card, CardContent } from '@material-ui/core';
