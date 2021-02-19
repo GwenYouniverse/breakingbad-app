@@ -5,6 +5,7 @@ import Header from './components/ui/Header'
 import Footer from './components/ui/Footer'
 import Characters from './components/characters/Characters'
 import CharacterDetails from './components/characters/CharacterDetails'
+import HomeScreen from './components/screens/HomeScreen';
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       <Header />
       <Container>
         <div className="main">
-          <Route path='/' component={Characters} exact />
+          <Route path='/' component={HomeScreen} exact />
+          <Route path='/characters' component={Characters} />
           <Route path='/character/:id' component={CharacterDetails} />
 
         </div>
