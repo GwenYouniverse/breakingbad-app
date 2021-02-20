@@ -37,7 +37,7 @@ const Characters = () => {
     }
 
     return (
-        <div>
+        <div >
             <h1 style={{ color: 'white' }} className="text-center m-4"><img
                 width="250"
                 height="150"
@@ -47,7 +47,7 @@ const Characters = () => {
                     {currentChar.map((character) => (
 
                         <Grid item xs={12} sm={6} md={4} lg={4} key={character.char_id}>
-                            <CharacterItem character={character}></CharacterItem>
+                            <CharacterItem character={character} ></CharacterItem>
                         </Grid>
 
                     ))}

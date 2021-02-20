@@ -18,10 +18,14 @@ const useStyles = makeStyles((theme) => ({
     },
     heading: {
         fontSize: theme.typography.pxToRem(15),
+        color: theme.palette.text.primary,
+        fontWeight: 800
     },
     secondaryHeading: {
         fontSize: theme.typography.pxToRem(15),
-        color: theme.palette.text.secondary,
+        color: theme.palette.text.primary,
+        fontWeight: 800
+
     },
     icon: {
         verticalAlign: 'bottom',
@@ -35,10 +39,14 @@ const useStyles = makeStyles((theme) => ({
         flexBasis: '100%',
     },
     helper: {
-        borderLeft: `5px solid ${theme.palette.success.main}`,
+        borderLeft: `5px solid ${theme.palette.success.dark}`,
         padding: theme.spacing(1, 2),
 
     },
+    bgColor: {
+        backgroundColor: '#c8e6c9',
+    },
+
 }));
 
 
@@ -46,11 +54,13 @@ const AcordionInfo = ({ character }) => {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <Accordion defaultExpanded>
+            <Accordion defaultExpanded
+                className={classes.bgColor}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1c-content"
                     id="panel1c-header"
+
                 >
                     <div className={classes.column}>
                         <Typography className={classes.heading}>Information</Typography>
@@ -62,8 +72,8 @@ const AcordionInfo = ({ character }) => {
                 <AccordionDetails className={classes.details}>
 
                     <div className={clsx(classes.column, classes.helper)}>
-                        <Typography variant="caption">
-                            Birthday: {character[0].birthday}
+                        <Typography variant="body2">
+                            <strong>Birthday: {character[0].birthday}</strong>
                             <br />
 
                         </Typography>
@@ -72,24 +82,51 @@ const AcordionInfo = ({ character }) => {
                 <Divider />
                 <AccordionDetails className={classes.details}>
                     <div className={clsx(classes.column, classes.helper)}>
-                        <Typography variant="caption">
-                        
-                            {character[0].occupation.map(o => `${o}, `)}
-                            
-
-                  <br />
+                        <Typography variant="body2">
+                            <strong>Nickname: {character[0].nickname}</strong>
+                            <br />
                         </Typography>
                     </div>
                 </AccordionDetails>
                 <Divider />
                 <AccordionDetails className={classes.details}>
                     <div className={clsx(classes.column, classes.helper)}>
-                        <Typography variant="caption">
-                            Select your destination of choice
-                  <br />
+                        <Typography variant="body2">
+                            <strong>Occupation: {character[0].occupation.map(o => `${o}`).join(", ")}</strong>
+                            <br />
                         </Typography>
                     </div>
                 </AccordionDetails>
+
+                <Divider />
+                <AccordionDetails className={classes.details}>
+                    <div className={clsx(classes.column, classes.helper)}>
+                        <Typography variant="body2">
+                            <strong>Status: {character[0].status}</strong>
+                            <br />
+                        </Typography>
+                    </div>
+                </AccordionDetails>
+                <Divider />
+                <AccordionDetails className={classes.details}>
+                    <div className={clsx(classes.column, classes.helper)}>
+                        <Typography variant="body2">
+                            <strong>Appearance: {character[0].appearance.map(a => `${a}`).join(', ')}</strong>
+
+                        </Typography>
+                    </div>
+                </AccordionDetails>
+                <Divider />
+                <AccordionDetails className={classes.details}>
+                    <div className={clsx(classes.column, classes.helper)}>
+                        <Typography variant="body2">
+                            <strong>Portrayed: {character[0].portrayed}</strong>
+
+                        </Typography>
+                    </div>
+                </AccordionDetails>
+                <Divider />
+                
             </Accordion>
         </div>
     )

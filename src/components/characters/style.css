@@ -19,3 +19,18 @@ h1 {
 .page-link:hover {
     color: rgb(17, 182, 17);
 }
+
+.imageFade {
+    background: #353535;
+    max-height: 650px;
+    animation: animateGrid 2s;
+  }
+
+@keyframes animateGrid {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }   
+}

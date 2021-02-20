@@ -20,7 +20,7 @@ export const characterListReducer = (state = { characters: [] }, action) => {
     }
 }
 
-export const characterDetailsReducer = (state = { character: [{ occupation: [], apperance: [] }] }, action) => {
+export const characterDetailsReducer = (state = { character: [{ occupation: [], appearance: [],  }] }, action) => {
     switch (action.type) {
         case CHARACTER_DETAILS_REQUEST:
             return { loading: true, ...state }

@@ -9,11 +9,12 @@ import Button from '@material-ui/core/Button';
 import { green } from '@material-ui/core/colors';
 import RestaurantMenuOutlinedIcon from '@material-ui/icons/RestaurantMenuOutlined';
 import { Link } from 'react-router-dom'
+import './style.css'
 
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: '345!important',
-    boxShadow: "1px 1px 4px 4px rgba(0, 230, 64, 1)",
+    boxShadow: "0px 1px 4px 1px rgba(0, 230, 64, 1)",
     backgroundColor: 'black',
     color: 'green'
   },
@@ -32,8 +33,8 @@ const useStyles = makeStyles((theme) => ({
       color: 'rgb(17, 182, 17)',
     }
   },
-  
-  
+
+
 }));
 
 const theme = createMuiTheme({
@@ -46,12 +47,9 @@ export default function CharacterItem({ character }) {
   const classes = useStyles();
 
   return (
+    <div className="imageFade">
     <Card className={classes.root}>
-      <CardHeader
-        className={classes.heading}
-        title={character.name}
 
-      />
 
       <CardActionArea>
         <CardMedia
@@ -62,9 +60,13 @@ export default function CharacterItem({ character }) {
       </CardActionArea>
       <CardContent className={classes.heading}>
         <ThemeProvider theme={theme}>
-          <Button 
-            component={ Link }
+          <Button
+            component={Link}
             to={`/character/${character.char_id}`}
+            onClick={() =>  (window.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            }))}
             variant="outlined" color="primary" className={classes.button}
             startIcon={<RestaurantMenuOutlinedIcon />}
           >
@@ -74,7 +76,7 @@ export default function CharacterItem({ character }) {
         </ThemeProvider>
       </CardContent>
 
-    </Card>
-
+    </Card >
+    </div>
   );
 }
