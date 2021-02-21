@@ -5,7 +5,7 @@ import { characterListReducer, characterDetailsReducer } from './reducers/charac
 
 const reducer = combineReducers({
   characterList: characterListReducer,
-  characterDetails: characterDetailsReducer
+  characterDetails: characterDetailsReducer,
 })
 
 const initialState = {}

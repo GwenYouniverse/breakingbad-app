@@ -4,7 +4,7 @@ import {
     CHARACTER_LIST_FAIL,
     CHARACTER_DETAILS_REQUEST,
     CHARACTER_DETAILS_SUCCESS,
-    CHARACTER_DETAILS_FAIL
+    CHARACTER_DETAILS_FAIL,
 } from '../constants/charactersConstants'
 
 export const characterListReducer = (state = { characters: [] }, action) => {
@@ -20,7 +20,7 @@ export const characterListReducer = (state = { characters: [] }, action) => {
     }
 }
 
-export const characterDetailsReducer = (state = { character: [{ occupation: [], appearance: [],  }] }, action) => {
+export const characterDetailsReducer = (state = { character: [{ occupation: [], appearance: [], }] }, action) => {
     switch (action.type) {
         case CHARACTER_DETAILS_REQUEST:
             return { loading: true, ...state }
@@ -32,3 +32,4 @@ export const characterDetailsReducer = (state = { character: [{ occupation: [], 
             return state
     }
 }
+

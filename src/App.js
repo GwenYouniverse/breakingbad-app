@@ -7,7 +7,6 @@ import Characters from './components/characters/Characters'
 import CharacterDetails from './components/characters/CharacterDetails'
 import HomeScreen from './components/screens/HomeScreen';
 
-
 function App() {
   return (
     <Router>

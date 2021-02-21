@@ -6,27 +6,25 @@ import Loader from '../ui/Loader'
 import { Grid, Card, CardContent } from '@material-ui/core';
 import logo from '../../img/logo.png'
 import Pagination from './Pagination'
-import { useLocation } from "react-router-dom";
+import Search from './Search'
 
 
 const Characters = () => {
+    const [currentPage, setCurrentPage] = useState(1)
+    const [charactersPerPage] = useState(6)
+    const [query, setQuery] = useState('');
+
     const dispatch = useDispatch()
     const characterList = useSelector(state => state.characterList)
     const { loading, error, characters } = characterList
-    const [currentPage, setCurrentPage] = useState(1)
-    const [charactersPerPage] = useState(6)
+
 
 
     useEffect(() => {
-        dispatch(listCharacters())
-    }, [dispatch])
+        dispatch(listCharacters(query))
+    }, [dispatch, query])
 
-    // useEffect(() => {
-    //     window.scrollTo(0, 0);
-    //   }, [pathname]);
-
-
-    //  Prikazivanje 10 karaktera po strani
+    //  Prikazivanje 10 karaktera po strani, paginacija
     const indexOfLastChar = currentPage * charactersPerPage
     const indexOfFistChar = indexOfLastChar - charactersPerPage
     const currentChar = characters.slice(indexOfFistChar, indexOfLastChar)
@@ -42,6 +40,7 @@ const Characters = () => {
                 width="250"
                 height="150"
                 src={logo} alt="" /></h1>
+            <Search getQuery={(q) => setQuery(q)} />
             {loading ? <Loader /> : error ? (<h3>{error}</h3>) : (
                 <Grid container spacing={6}>
                     {currentChar.map((character) => (

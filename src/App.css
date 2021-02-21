@@ -1,6 +1,5 @@
 html,
 body {
-  background: rgb(2,0,36);
   background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(44,82,49,1) 0%, rgba(34,70,40,1) 6%, rgba(23,56,30,1) 67%, rgba(32,70,40,1) 100%);
   height: 100vh;
   color: #fff;
@@ -9,7 +8,7 @@ body {
 
 
 .main {
-  min-height: 80vh;
+  min-height: 100vh;
 }
 
 /* */

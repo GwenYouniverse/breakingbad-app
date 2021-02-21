@@ -5,14 +5,14 @@ import {
     CHARACTER_LIST_FAIL,
     CHARACTER_DETAILS_SUCCESS,
     CHARACTER_DETAILS_FAIL,
-    CHARACTER_DETAILS_REQUEST
+    CHARACTER_DETAILS_REQUEST,
 } from '../constants/charactersConstants'
 
-export const listCharacters = () => async (dispatch) => {
+export const listCharacters = (query) => async (dispatch) => {
     try {
         dispatch({ type: CHARACTER_LIST_REQUEST })
 
-        const { data } = await axios.get('https://breakingbadapi.com/api/characters')
+        const { data } = await axios.get(`https://breakingbadapi.com/api/characters?name=${query}`)
 
         dispatch({
             type: CHARACTER_LIST_SUCCESS,
@@ -45,3 +45,4 @@ export const listCharacterDetails = (id) => async (dispatch) => {
         })
     }
 }
+

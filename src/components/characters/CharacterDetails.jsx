@@ -6,9 +6,6 @@ import { Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom'
 import Loader from '../ui/Loader';
 import AcordionInfo from './AcordionInfo'
-import { useLocation } from "react-router-dom";
-
-
 
 const CharacterDetails = ({ match }) => {
     const dispatch = useDispatch()
