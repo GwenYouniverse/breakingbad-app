@@ -7,7 +7,7 @@ import { Grid, Card, CardContent } from '@material-ui/core';
 import logo from '../../img/logo.png'
 import Pagination from './Pagination'
 import Search from './Search'
-
+import ScrollAnimation from 'react-animate-on-scroll';
 
 const Characters = () => {
     const [currentPage, setCurrentPage] = useState(1)
@@ -42,16 +42,18 @@ const Characters = () => {
                 src={logo} alt="" /></h1>
             <Search getQuery={(q) => setQuery(q)} />
             {loading ? <Loader /> : error ? (<h3>{error}</h3>) : (
-                <Grid container spacing={6}>
-                    {currentChar.map((character) => (
 
-                        <Grid item xs={12} sm={6} md={4} lg={4} key={character.char_id}>
-                            <CharacterItem character={character} ></CharacterItem>
-                        </Grid>
+                    <Grid container spacing={6}>
+                        {currentChar.map((character) => (
 
-                    ))}
+                            <Grid item xs={12} sm={6} md={4} lg={4} key={character.char_id}>
+                                <ScrollAnimation animateIn="fadeIn" >
+                                    <CharacterItem character={character} />
+                                </ScrollAnimation>
+                            </Grid>
+                        ))}
 
-                </Grid>
+                    </Grid>
             )}
 
             <Pagination

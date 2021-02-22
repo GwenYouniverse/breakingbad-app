@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, IconButton, Toolbar, Collapse } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Grid } from '@material-ui/core';
-import { animateScroll as scroll } from 'react-scroll';
+import ScrollAnimation from 'react-animate-on-scroll';
+import Carousel from './Carousel'
+import walterWhiteJessie from '../../img/wwjp.png'
+import bettercallsaul from '../../img/bettercall.png'
+import {Animated} from "react-animated-css";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -20,10 +24,9 @@ const useStyles = makeStyles((theme) => ({
     container: {
         textAlign: 'center',
     },
-    goDown: {
-        color: '#5AFF3D',
-        fontSize: '4rem'
-    }
+    imgWWJP: {
+        height: '50vh'
+    },
 
 }));
 const HomeScreen = () => {
@@ -33,28 +36,40 @@ const HomeScreen = () => {
         setChecked(true);
     }, []);
 
-    return (
-        <div className={classes.root}>
-            <Collapse
-                in={checked}
-                {...(checked ? { timeout: 1000 } : {})}
-                collapsedHeight={50} >
-                <div className={classes.container}>
-                    <h1 className={classes.title}>Lets cook biatch </h1>
-                    <IconButton>
-                        <ExpandMoreIcon onClick={() => scroll.scrollMore(500)} />
-                    </IconButton>
-                </div>
-                <Grid container spacing={3}>
-                <Grid item lg={6} md={6} xs={12} sm={12}>
-                    <img className="detailsimg my-1 imageFade" src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202001/Breaking_Bad.jpeg?Ifrqi.v01Y0KfAlAyY172HCu8HZTJJvy&size=770:433" alt="" />
-                </Grid>
+    const myRef = useRef(null)
 
-                <Grid item lg={6} md={6} xs={12} sm={12}>
-                    <img className="detailsimg my-1 imageFade" src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202001/Breaking_Bad.jpeg?Ifrqi.v01Y0KfAlAyY172HCu8HZTJJvy&size=770:433" alt="" />
-                </Grid>
-            </Grid>
-            </Collapse>
+    const executeScroll = () => myRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    //scroll.scrollMore(600)
+    return (
+        <div>
+            <div className={classes.root}>
+
+                <div className={classes.container}>
+                    <Collapse
+                        in={checked}
+                        {...(checked ? { timeout: 1000 } : {})}
+                        collapsedHeight={50} >
+                        <ScrollAnimation animateIn="fadeIn" animateOut='fadeOut'>
+                            <img src={walterWhiteJessie} alt="" className={classes.imgWWJP} />
+                            <img src={bettercallsaul} alt="" className={classes.imgWWJP} />
+                            <h1 className={classes.title}></h1>
+                            <Animated animationIn="bounce" animationInDuration={4000}  isVisible={true}>
+                            <IconButton onClick={executeScroll}>
+                                <ExpandMoreIcon style={{ fontSize: 60}} color="secondary"  />
+                            </IconButton>
+                            </Animated>
+                        </ScrollAnimation>
+                    </Collapse>
+                </div>
+            </div>
+
+            <div ref={myRef}>
+                <h1 className="text-center mb-5">Series</h1>
+                <ScrollAnimation animateIn="fadeIn" animateOut='fadeOut'>
+                    <Carousel />
+                </ScrollAnimation>
+            </div>
+
         </div>
 
     )
