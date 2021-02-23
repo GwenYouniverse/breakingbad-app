@@ -7,25 +7,23 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import Carousel from './Carousel'
 import walterWhiteJessie from '../../img/wwjp.png'
 import bettercallsaul from '../../img/bettercall.png'
-import {Animated} from "react-animated-css";
+import { Animated } from "react-animated-css";
 
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100vh',
-        fontFamily: 'Nunito',
+        height: '100vh'
     },
     title: {
         fontSize: '3rem'
     },
     container: {
-        textAlign: 'center',
+        textAlign: 'center'
     },
     imgWWJP: {
-        height: '50vh'
+        height: '300px'
     },
 
 }));
@@ -53,18 +51,20 @@ const HomeScreen = () => {
                             <img src={walterWhiteJessie} alt="" className={classes.imgWWJP} />
                             <img src={bettercallsaul} alt="" className={classes.imgWWJP} />
                             <h1 className={classes.title}></h1>
-                            <Animated animationIn="bounce" animationInDuration={4000}  isVisible={true}>
-                            <IconButton onClick={executeScroll}>
-                                <ExpandMoreIcon style={{ fontSize: 60}} color="secondary"  />
-                            </IconButton>
+                            <Animated animationIn="bounce" animationInDuration={4000} isVisible={true}>
+                                <IconButton onClick={executeScroll}>
+                                    <ExpandMoreIcon style={{ fontSize: 60 }} color="secondary" />
+                                </IconButton>
                             </Animated>
+
                         </ScrollAnimation>
+
                     </Collapse>
                 </div>
             </div>
 
             <div ref={myRef}>
-                <h1 className="text-center mb-5">Series</h1>
+                <h1 className="text-center mt-5 mb-5">Series</h1>
                 <ScrollAnimation animateIn="fadeIn" animateOut='fadeOut'>
                     <Carousel />
                 </ScrollAnimation>

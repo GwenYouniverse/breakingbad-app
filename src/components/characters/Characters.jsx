@@ -18,8 +18,6 @@ const Characters = () => {
     const characterList = useSelector(state => state.characterList)
     const { loading, error, characters } = characterList
 
-
-
     useEffect(() => {
         dispatch(listCharacters(query))
     }, [dispatch, query])
