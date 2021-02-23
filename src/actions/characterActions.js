@@ -6,6 +6,9 @@ import {
     CHARACTER_DETAILS_SUCCESS,
     CHARACTER_DETAILS_FAIL,
     CHARACTER_DETAILS_REQUEST,
+    EPISODE_BRBA_REQUEST,
+    EPISODE_BRBA_SUCCESS,
+    EPISODE_BRBA_FAIL,
 } from '../constants/charactersConstants'
 
 export const listCharacters = (query) => async (dispatch) => {
@@ -46,3 +49,21 @@ export const listCharacterDetails = (id) => async (dispatch) => {
     }
 }
 
+export const listBrbaEpisodes = () => async (dispatch) => {
+    try {
+        dispatch({ type: EPISODE_BRBA_REQUEST })
+
+        const { data } = await axios.get('https://breakingbadapi.com/api/episodes?series=Breaking+Bad')
+
+        dispatch({
+            type: EPISODE_BRBA_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: EPISODE_BRBA_FAIL,
+            payload: error
+        })
+    }
+}

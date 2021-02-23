@@ -5,6 +5,9 @@ import {
     CHARACTER_DETAILS_REQUEST,
     CHARACTER_DETAILS_SUCCESS,
     CHARACTER_DETAILS_FAIL,
+    EPISODE_BRBA_REQUEST,
+    EPISODE_BRBA_SUCCESS,
+    EPISODE_BRBA_FAIL,
 } from '../constants/charactersConstants'
 
 export const characterListReducer = (state = { characters: [] }, action) => {
@@ -27,6 +30,19 @@ export const characterDetailsReducer = (state = { character: [{ occupation: [], 
         case CHARACTER_DETAILS_SUCCESS:
             return { loading: false, character: action.payload }
         case CHARACTER_DETAILS_FAIL:
+            return { loading: false, error: action.payload };
+        default:
+            return state
+    }
+}
+
+export const episodeBrbaListReducer = (state = { episodesBrba: [] }, action) => {
+    switch (action.type) {
+        case EPISODE_BRBA_REQUEST:
+            return { loading: true, episodesBrba: [] }
+        case EPISODE_BRBA_SUCCESS:
+            return { loading: false, episodesBrba: action.payload }
+        case EPISODE_BRBA_FAIL:
             return { loading: false, error: action.payload };
         default:
             return state

@@ -6,6 +6,7 @@ import Footer from './components/ui/Footer'
 import Characters from './components/characters/Characters'
 import CharacterDetails from './components/characters/CharacterDetails'
 import HomeScreen from './components/screens/HomeScreen';
+import Episodes from './components/episodes/Episodes'
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
           <Route path='/' component={HomeScreen} exact />
           <Route path='/characters' component={Characters} />
           <Route path='/character/:id' component={CharacterDetails} />
-
+          <Route path='/episodes' component={Episodes} />
         </div>
       </Container>
       <Footer />
