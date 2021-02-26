@@ -9,29 +9,30 @@ import Paper from '@material-ui/core/Paper';
 import SeriesRow from './SeriesRow'
 
 
-
-const BreakingBadEp = ({ epBrba }) => {
+const BetterCallSaulEp = ({ epBcs }) => {
     return (
-        <TableContainer component={Paper}>
-            <Table aria-label="collapsible table">
-                <TableHead>
-                    <TableRow>
-                        <TableCell />
-                        <TableCell><strong>Episodes name</strong></TableCell>
+        <div>
+            <TableContainer component={Paper}>
+                <Table aria-label="collapsible table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell />
+                            <TableCell><strong>Episodes name</strong></TableCell>
                             <TableCell align="right"><strong>Air date</strong></TableCell>
                             <TableCell align="right"><strong>Season</strong></TableCell>
                             <TableCell align="right"><strong>Episode</strong></TableCell>
                             <TableCell align="right"><strong>Series name</strong></TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {epBrba.map((row) => (
-                        <SeriesRow key={row.episode_id} row={row} />
-                    ))}
-                </TableBody>
-            </Table>
-        </TableContainer>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {epBcs.map((row) => (
+                            <SeriesRow key={row.episode_id} row={row} />
+                        ))}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+        </div>
     )
 }
 
-export default BreakingBadEp
+export default BetterCallSaulEp

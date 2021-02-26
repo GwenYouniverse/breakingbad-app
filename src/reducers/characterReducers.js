@@ -8,6 +8,9 @@ import {
     EPISODE_BRBA_REQUEST,
     EPISODE_BRBA_SUCCESS,
     EPISODE_BRBA_FAIL,
+    EPISODE_BCS_REQUEST,
+    EPISODE_BCS_SUCCESS,
+    EPISODE_BCS_FAIL,
 } from '../constants/charactersConstants'
 
 export const characterListReducer = (state = { characters: [] }, action) => {
@@ -48,4 +51,18 @@ export const episodeBrbaListReducer = (state = { episodesBrba: [] }, action) => 
             return state
     }
 }
+
+export const episodeBcsListReducer = (state = { episodesBcs: [] }, action) => {
+    switch (action.type) {
+        case EPISODE_BCS_REQUEST:
+            return { loadingBcs: true, episodesBcs: [] }
+        case EPISODE_BCS_SUCCESS:
+            return { loadingBcs: false, episodesBcs: action.payload }
+        case EPISODE_BCS_FAIL:
+            return { loadingBcs: false, errorBcs: action.payload };
+        default:
+            return state
+    }
+}
+
 

@@ -9,6 +9,9 @@ import {
     EPISODE_BRBA_REQUEST,
     EPISODE_BRBA_SUCCESS,
     EPISODE_BRBA_FAIL,
+    EPISODE_BCS_REQUEST,
+    EPISODE_BCS_SUCCESS,
+    EPISODE_BCS_FAIL,
 } from '../constants/charactersConstants'
 
 export const listCharacters = (query) => async (dispatch) => {
@@ -53,7 +56,7 @@ export const listBrbaEpisodes = () => async (dispatch) => {
     try {
         dispatch({ type: EPISODE_BRBA_REQUEST })
 
-        const { data } = await axios.get('https://breakingbadapi.com/api/episodes?series=Breaking+Bad')
+        const { data } = await axios.get(`https://breakingbadapi.com/api/episodes?series=Breaking+Bad`)
 
         dispatch({
             type: EPISODE_BRBA_SUCCESS,
@@ -63,6 +66,26 @@ export const listBrbaEpisodes = () => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: EPISODE_BRBA_FAIL,
+            payload: error
+        })
+    }
+}
+
+
+export const listBcsEpisodes = () => async (dispatch) => {
+    try {
+        dispatch({ type: EPISODE_BCS_REQUEST })
+
+        const { data } = await axios.get('https://breakingbadapi.com/api/episodes?series=Better+Call+Saul')
+
+        dispatch({
+            type: EPISODE_BCS_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: EPISODE_BCS_FAIL,
             payload: error
         })
     }

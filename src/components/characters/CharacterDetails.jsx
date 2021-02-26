@@ -19,6 +19,7 @@ const CharacterDetails = ({ match }) => {
 
         useEffect(() => {
         window.scrollTo(0, 0);
+        
       }, []);
 
     // The API returns array of single object with given id like this:  character: [{...}]
