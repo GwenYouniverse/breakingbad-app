@@ -11,6 +11,9 @@ import {
     EPISODE_BCS_REQUEST,
     EPISODE_BCS_SUCCESS,
     EPISODE_BCS_FAIL,
+    RANDOM_QUOTE_REQUEST,
+    RANDOM_QUOTE_SUCCESS,
+    RANDOM_QUOTE_FAIL,
 } from '../constants/charactersConstants'
 
 export const characterListReducer = (state = { characters: [] }, action) => {
@@ -65,4 +68,15 @@ export const episodeBcsListReducer = (state = { episodesBcs: [] }, action) => {
     }
 }
 
-
+export const randomQuoteReducer = (state = { quote: [{}] }, action) => {
+    switch (action.type) {
+        case RANDOM_QUOTE_REQUEST:
+            return { loading: true, ...state }
+        case RANDOM_QUOTE_SUCCESS:
+            return { loading: false, quote: action.payload }
+        case RANDOM_QUOTE_FAIL:
+            return { loading: false, error: action.payload };
+        default:
+            return state
+    }
+}

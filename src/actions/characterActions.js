@@ -12,6 +12,9 @@ import {
     EPISODE_BCS_REQUEST,
     EPISODE_BCS_SUCCESS,
     EPISODE_BCS_FAIL,
+    RANDOM_QUOTE_SUCCESS,
+    RANDOM_QUOTE_FAIL,
+    RANDOM_QUOTE_REQUEST,
 } from '../constants/charactersConstants'
 
 export const listCharacters = (query) => async (dispatch) => {
@@ -90,3 +93,23 @@ export const listBcsEpisodes = () => async (dispatch) => {
         })
     }
 }
+
+export const listRandomQuote = () => async (dispatch) => {
+    try {
+        dispatch({ type: RANDOM_QUOTE_REQUEST })
+
+        const { data } = await axios.get('https://breakingbadapi.com/api/quote/random')
+
+        dispatch({
+            type: RANDOM_QUOTE_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: RANDOM_QUOTE_FAIL,
+            payload: error
+        })
+    }
+}
+

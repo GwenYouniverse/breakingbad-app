@@ -2,12 +2,14 @@ import React, { useEffect, useState, useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, IconButton, Toolbar, Collapse } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { Grid } from '@material-ui/core';
 import ScrollAnimation from 'react-animate-on-scroll';
 import Carousel from './Carousel'
 import walterWhiteJessie from '../../img/wwjp.png'
 import bettercallsaul from '../../img/bettercall.png'
 import { Animated } from "react-animated-css";
+import RandomQuote from './RandomQuote';
+import Slider from './Slider'
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -50,7 +52,7 @@ const HomeScreen = () => {
                         <ScrollAnimation animateIn="fadeIn" animateOut='fadeOut'>
                             <img src={walterWhiteJessie} alt="" className={classes.imgWWJP} />
                             <img src={bettercallsaul} alt="" className={classes.imgWWJP} />
-                            <h1 className={classes.title}></h1>
+                            <RandomQuote />
                             <Animated animationIn="bounce" animationInDuration={4000} isVisible={true}>
                                 <IconButton onClick={executeScroll}>
                                     <ExpandMoreIcon style={{ fontSize: 60 }} color="secondary" />
@@ -64,10 +66,19 @@ const HomeScreen = () => {
             </div>
 
             <div ref={myRef}>
-                <h1 className="text-center mt-5 mb-5">Series</h1>
+               
                 <ScrollAnimation animateIn="fadeIn" animateOut='fadeOut'>
-                    <Carousel />
+                    <Slider />
                 </ScrollAnimation>
+            </div>
+            <ScrollAnimation animateIn="fadeIn" animateOut='fadeOut'>
+            <h1 className="text-center mt-5 mb-5">Series</h1>
+                <Carousel />
+                
+            </ScrollAnimation>
+            <div>
+
+
             </div>
 
         </div>

@@ -1,13 +1,14 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import { characterListReducer, characterDetailsReducer, episodeBrbaListReducer, episodeBcsListReducer  } from './reducers/characterReducers'
+import { characterListReducer, characterDetailsReducer, episodeBrbaListReducer, episodeBcsListReducer, randomQuoteReducer } from './reducers/characterReducers'
 
 const reducer = combineReducers({
   characterList: characterListReducer,
   characterDetails: characterDetailsReducer,
   episodeBrbaList: episodeBrbaListReducer,
-  episodeBcsList : episodeBcsListReducer
+  episodeBcsList: episodeBcsListReducer,
+  randomQuoteList: randomQuoteReducer
 })
 
 const initialState = {}

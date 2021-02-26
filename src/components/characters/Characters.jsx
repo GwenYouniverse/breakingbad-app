@@ -34,6 +34,7 @@ const Characters = () => {
 
     return (
         <div >
+            
             <h1 style={{ color: 'white' }} className="text-center m-4"><img
                 width="250"
                 height="150"
@@ -41,17 +42,17 @@ const Characters = () => {
             <Search getQuery={(q) => setQuery(q)} />
             {loading ? <Loader /> : error ? (<h3>{error}</h3>) : (
 
-                    <Grid container spacing={6}>
-                        {currentChar.map((character) => (
+                <Grid container spacing={6}>
+                    {currentChar.map((character) => (
 
-                            <Grid item xs={12} sm={6} md={4} lg={4} key={character.char_id}>
-                                <ScrollAnimation animateIn="fadeIn" >
-                                    <CharacterItem character={character} />
-                                </ScrollAnimation>
-                            </Grid>
-                        ))}
+                        <Grid item xs={12} sm={6} md={4} lg={4} key={character.char_id}>
+                            <ScrollAnimation animateIn="fadeIn" >
+                                <CharacterItem character={character} />
+                            </ScrollAnimation>
+                        </Grid>
+                    ))}
 
-                    </Grid>
+                </Grid>
             )}
 
             <Pagination
