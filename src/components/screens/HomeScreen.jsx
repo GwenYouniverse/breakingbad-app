@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100vh'
+        minHeight: '100vh'
     },
     title: {
         fontSize: '3rem'
@@ -43,42 +43,30 @@ const HomeScreen = () => {
     return (
         <div>
             <div className={classes.root}>
-
                 <div className={classes.container}>
-                    <Collapse
-                        in={checked}
-                        {...(checked ? { timeout: 1000 } : {})}
-                        collapsedHeight={50} >
-                        <ScrollAnimation animateIn="fadeIn" animateOut='fadeOut'>
-                            <img src={walterWhiteJessie} alt="" className={classes.imgWWJP} />
-                            <img src={bettercallsaul} alt="" className={classes.imgWWJP} />
-                            <RandomQuote />
-                            <Animated animationIn="bounce" animationInDuration={4000} isVisible={true}>
-                                <IconButton onClick={executeScroll}>
-                                    <ExpandMoreIcon style={{ fontSize: 60 }} color="secondary" />
-                                </IconButton>
-                            </Animated>
-
-                        </ScrollAnimation>
-
-                    </Collapse>
+                    <ScrollAnimation animateIn="fadeIn" animateOut='fadeOut'>
+                        <img src={walterWhiteJessie} alt="" className={classes.imgWWJP} />
+                        <img src={bettercallsaul} alt="" className={classes.imgWWJP} />
+                        <Animated animationIn="bounce" animationInDuration={4000} isVisible={true}>
+                            <IconButton onClick={executeScroll}>
+                                <ExpandMoreIcon style={{ fontSize: 60 }} color="secondary" />
+                            </IconButton>
+                        </Animated>
+                        <RandomQuote />
+                    </ScrollAnimation>
                 </div>
             </div>
-
             <div ref={myRef}>
-               
                 <ScrollAnimation animateIn="fadeIn" animateOut='fadeOut'>
                     <Slider />
                 </ScrollAnimation>
             </div>
             <ScrollAnimation animateIn="fadeIn" animateOut='fadeOut'>
-            <h1 className="text-center mt-5 mb-5">Series</h1>
+                <h1 className="text-center mt-5 mb-5">Series</h1>
                 <Carousel />
-                
+
             </ScrollAnimation>
             <div>
-
-
             </div>
 
         </div>

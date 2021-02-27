@@ -17,3 +17,8 @@ body {
 
 /* */
 /* https://wallpapercave.com/w/7qfnoDC */
+
+.container-img {
+  width: 80%;
+  margin: auto;
+}
