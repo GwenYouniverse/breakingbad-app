@@ -14,9 +14,11 @@ const RandomQuote = () => {
 
     return (
         <div>
-            <h1>{quote[0].quote}</h1>
-            <h1>{`- ${quote[0].author}`}</h1>
+            <p>{quote[0].quote}</p>
+            <p>{`- ${quote[0].author}`}</p>
         </div>
+
+        //#F50057
     )
 }
 
