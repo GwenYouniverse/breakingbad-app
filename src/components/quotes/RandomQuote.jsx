@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { listRandomQuote } from '../../actions/characterActions'
-import Typical from 'react-typical'
+import ScrollAnimation from 'react-animate-on-scroll';
 
 const RandomQuote = () => {
     const dispatch = useDispatch()
@@ -14,8 +14,16 @@ const RandomQuote = () => {
 
     return (
         <div>
-            <p>{quote[0].quote}</p>
-            <p>{`- ${quote[0].author}`}</p>
+            {loading ? null : (
+                <ScrollAnimation animateIn="fadeIn" >
+                    <div className="w3-container">
+                        <div className="w3-panel w3-leftbar quote-div">
+                            <p className="w3-xlarge w3-serif"><i>{`${quote[0].quote}`}</i></p>
+                            <p>{`- ${quote[0].author}`}</p>
+                        </div>
+                    </div>
+                </ScrollAnimation>
+            )}
         </div>
 
         //#F50057

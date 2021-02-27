@@ -7,7 +7,8 @@ import BreakingBadEp from './BreakingBadEp';
 import Loader from '../ui/Loader';
 import BetterCallSaulEp from './BetterCallSaulEp'
 
-const Episodes = ({ match }) => {
+
+const Episodes = () => {
     const dispatch = useDispatch()
     const episodeBrbaList = useSelector(state => state.episodeBrbaList)
     const { loading, error, episodesBrba } = episodeBrbaList
@@ -22,6 +23,11 @@ const Episodes = ({ match }) => {
         { console.log(window.location.search) }
         dispatch(listBcsEpisodes())
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        
+      }, []);
 
     return (
         <div className="mt-5">

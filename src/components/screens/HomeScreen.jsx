@@ -7,10 +7,8 @@ import Carousel from './Carousel'
 import walterWhiteJessie from '../../img/wwjp.png'
 import bettercallsaul from '../../img/bettercall.png'
 import { Animated } from "react-animated-css";
-import RandomQuote from './RandomQuote';
+import RandomQuote from '../quotes/RandomQuote';
 import Slider from './Slider'
-
-
 
 const useStyles = makeStyles((theme) => ({
     root: {

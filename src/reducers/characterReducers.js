@@ -14,6 +14,9 @@ import {
     RANDOM_QUOTE_REQUEST,
     RANDOM_QUOTE_SUCCESS,
     RANDOM_QUOTE_FAIL,
+    AUTHOR_QUOTE_SUCCESS,
+    AUTHOR_QUOTE_REQUEST,
+    AUTHOR_QUOTE_FAIL,
 } from '../constants/charactersConstants'
 
 export const characterListReducer = (state = { characters: [] }, action) => {
@@ -75,6 +78,19 @@ export const randomQuoteReducer = (state = { quote: [{}] }, action) => {
         case RANDOM_QUOTE_SUCCESS:
             return { loading: false, quote: action.payload }
         case RANDOM_QUOTE_FAIL:
+            return { loading: false, error: action.payload };
+        default:
+            return state
+    }
+}
+
+export const authorQuoteReducer = (state = { quoteByAuthor: [] }, action) => {
+    switch (action.type) {
+        case AUTHOR_QUOTE_REQUEST:
+            return { loading: true, quoteByAuthor: [] }
+        case AUTHOR_QUOTE_SUCCESS:
+            return { loading: false, quoteByAuthor: action.payload }
+        case AUTHOR_QUOTE_FAIL:
             return { loading: false, error: action.payload };
         default:
             return state

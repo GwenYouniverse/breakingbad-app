@@ -69,7 +69,7 @@ export default function CharacterItem({ character }) {
             variant="outlined" color="primary" className={classes.button}
             startIcon={<RestaurantMenuOutlinedIcon />}
           >
-            Let's Cook B***h
+            See More
             
         </Button>
         </ThemeProvider>

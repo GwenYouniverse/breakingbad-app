@@ -7,13 +7,20 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import SeriesRow from './SeriesRow'
+import { makeStyles } from '@material-ui/core/styles';
 
+const useStyles = makeStyles((theme) => ({
+    bgColor: {
+        backgroundColor: '#c8e6c9',
+    },
+}));
 
 const BetterCallSaulEp = ({ epBcs }) => {
+    const classes = useStyles();
     return (
         <div>
-            <TableContainer component={Paper}>
-                <Table aria-label="collapsible table">
+            <TableContainer component={Paper} className={classes.bgColor}>
+                <Table aria-label="collapsible table" className={classes.bgColor}>
                     <TableHead>
                         <TableRow>
                             <TableCell />

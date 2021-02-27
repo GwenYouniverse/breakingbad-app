@@ -22,3 +22,7 @@ body {
   width: 80%;
   margin: auto;
 }
+
+.quote-div {
+  background: rgba(54, 200, 86, 0.5);
+}

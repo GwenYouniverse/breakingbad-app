@@ -15,6 +15,9 @@ import {
     RANDOM_QUOTE_SUCCESS,
     RANDOM_QUOTE_FAIL,
     RANDOM_QUOTE_REQUEST,
+    AUTHOR_QUOTE_REQUEST,
+    AUTHOR_QUOTE_SUCCESS,
+    AUTHOR_QUOTE_FAIL,
 } from '../constants/charactersConstants'
 
 export const listCharacters = (query) => async (dispatch) => {
@@ -113,3 +116,21 @@ export const listRandomQuote = () => async (dispatch) => {
     }
 }
 
+export const listAuthorQuote = (name) => async (dispatch) => {
+    try {
+        dispatch({ type: AUTHOR_QUOTE_REQUEST })
+
+        const { data } = await axios.get(`https://breakingbadapi.com/api/quote?author=${name}`)
+
+        dispatch({
+            type: AUTHOR_QUOTE_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: AUTHOR_QUOTE_FAIL,
+            payload: error
+        })
+    }
+}
