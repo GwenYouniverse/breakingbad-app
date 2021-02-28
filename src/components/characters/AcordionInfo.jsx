@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
 
     },
     bgColor: {
-        backgroundColor: '#c8e6c9',
+        backgroundColor: 'rgba(54, 200, 86, 0.5)'
     },
 
 }));

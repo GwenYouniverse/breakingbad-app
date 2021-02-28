@@ -14,13 +14,13 @@ const Carousel = ({ handleClickBrba, handleClickBcs }) => {
             <Grid item lg={6} md={6} xs={12} sm={12}>
                 <Link to='/episodes?series=Breaking+Bad'>
                     
-                    <img className="detailsimg my-1" onClick={handleClickBrba} src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202001/Breaking_Bad.jpeg?Ifrqi.v01Y0KfAlAyY172HCu8HZTJJvy&size=770:433" alt="" />
+                    <img className="detailsimg my-1" onClick={handleClickBrba} src="https://wallpapercave.com/wp/wp3963420.jpg" alt="" />
                 </Link>
             </Grid>
 
             <Grid item lg={6} md={6} xs={12} sm={12}>
                 <Link to='/episodes?series=Better+Call+Saul'>
-                    <img className="detailsimg my-1" onClick={handleClickBcs} src="https://www.ondishmag.com/wp-content/uploads/2018/08/p10492751_b_h6_ae-678x381.jpg" alt="" />
+                    <img className="detailsimg my-1" onClick={handleClickBcs} src="https://wallpapercave.com/wp/wp1930597.jpg" alt="" />
                 </Link>
             </Grid>
         </Grid>

@@ -9,9 +9,10 @@ import Paper from '@material-ui/core/Paper';
 import SeriesRow from './SeriesRow'
 import { makeStyles } from '@material-ui/core/styles';
 
+
 const useStyles = makeStyles((theme) => ({
     bgColor: {
-        backgroundColor: '#c8e6c9',
+        backgroundColor: 'rgba(54, 200, 86, 0.5)'
     },
 }));
 
@@ -19,16 +20,17 @@ const BetterCallSaulEp = ({ epBcs }) => {
     const classes = useStyles();
     return (
         <div>
+            
             <TableContainer component={Paper} className={classes.bgColor}>
                 <Table aria-label="collapsible table" className={classes.bgColor}>
                     <TableHead>
                         <TableRow>
-                            <TableCell />
-                            <TableCell><strong>Episodes name</strong></TableCell>
-                            <TableCell align="right"><strong>Air date</strong></TableCell>
-                            <TableCell align="right"><strong>Season</strong></TableCell>
-                            <TableCell align="right"><strong>Episode</strong></TableCell>
-                            <TableCell align="right"><strong>Series name</strong></TableCell>
+                        <TableCell />
+                        <TableCell><h4>Episodes name</h4></TableCell>
+                        <TableCell align="right"><h4>Air date</h4></TableCell>
+                        <TableCell align="right"><h4>Season</h4></TableCell>
+                        <TableCell align="right"><h4>Episode</h4></TableCell>
+                        <TableCell align="right"><h4>Series name</h4></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -38,6 +40,7 @@ const BetterCallSaulEp = ({ epBcs }) => {
                     </TableBody>
                 </Table>
             </TableContainer>
+      
         </div>
     )
 }

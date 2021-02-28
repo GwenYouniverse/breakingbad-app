@@ -4,6 +4,7 @@ import { LinkContainer } from 'react-router-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './nav.css'
 import logo from '../../img/logo.png'
+import ReactNavbar from "react-responsive-animate-navbar";
 
 const Header = () => {
   return (

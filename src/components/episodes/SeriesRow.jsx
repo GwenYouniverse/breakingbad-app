@@ -12,6 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
+
 const useRowStyles = makeStyles({
     root: {
         '& > *': {
@@ -26,6 +27,7 @@ const BreakingBadEpRow = ({ row }) => {
     const classes = useRowStyles();
 
     return (
+
         <React.Fragment>
             <TableRow className={classes.root}>
                 <TableCell>
@@ -33,19 +35,21 @@ const BreakingBadEpRow = ({ row }) => {
                         {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
                     </IconButton>
                 </TableCell>
+
                 <TableCell component="th" scope="row">
-                    {row.title}
+                    <h6>{row.title}</h6>
                 </TableCell>
-                <TableCell align="right">{row.air_date}</TableCell>
-                <TableCell align="right">{row.season}</TableCell>
-                <TableCell align="right">{row.episode}</TableCell>
-                <TableCell align="right">{row.series}</TableCell>
+                <TableCell align="right"><h6>{row.air_date}</h6></TableCell>
+                <TableCell align="right"><h6>{row.season}</h6></TableCell>
+                <TableCell align="right"><h6>{row.episode}</h6></TableCell>
+                <TableCell align="right"><h6>{row.series}</h6></TableCell>
             </TableRow>
+
             <TableRow>
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                     <Collapse in={open} timeout="auto" unmountOnExit>
                         <Box margin={1}>
-                            <Typography variant="h6" gutterBottom component="div">
+                            <Typography variant="h5" gutterBottom component="div">
                                 Cast
                 </Typography>
                             <Table size="small" aria-label="purchases">
@@ -57,7 +61,7 @@ const BreakingBadEpRow = ({ row }) => {
                                     {row.characters.map(c => (
                                         <TableRow key={row.episode_id}>
                                             <TableCell component="th" scope="row">
-                                                {c}
+                                                <h5>{c}</h5>
                                             </TableCell>
                                         </TableRow>
                                     ))}
@@ -68,6 +72,7 @@ const BreakingBadEpRow = ({ row }) => {
                 </TableCell>
             </TableRow>
         </React.Fragment>
+
     )
 }
 

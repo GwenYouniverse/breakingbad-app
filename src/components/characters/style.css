@@ -49,3 +49,12 @@ h1 {
     outline: none;
   }
 
+  .awssld{
+    --organic-arrow-color: #09ff2f !important;
+    --control-bullet-color:  rgba(54, 200, 86, 0.5)!important;
+    --control-bullet-active-color: rgb(54, 200, 86) !important;
+  }
+
+.w3-leftbar {
+    border-left: 6px solid #346e53 !important;
+}
