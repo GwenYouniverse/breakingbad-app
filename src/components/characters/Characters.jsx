@@ -20,11 +20,11 @@ const Characters = () => {
     }, [dispatch, query])
 
     //  Prikazivanje 10 karaktera po strani, paginacija
-    
+
 
     return (
         <div >
-            
+
             <h1 style={{ color: 'white' }} className="text-center m-4"><img
                 width="250"
                 height="150"
@@ -45,7 +45,7 @@ const Characters = () => {
                 </Grid>
             )}
 
-            
+
         </div>
     )
 }

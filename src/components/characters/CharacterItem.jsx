@@ -30,7 +30,9 @@ const useStyles = makeStyles((theme) => ({
     color: 'rgb(17, 182, 17)',
     '&:hover': {
       color: 'rgb(17, 182, 17)',
-    }
+      
+    },
+    fontFamily: 'RocknRoll One',
   },
 
 

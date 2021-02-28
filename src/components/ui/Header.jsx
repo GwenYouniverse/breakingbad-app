@@ -4,12 +4,13 @@ import { LinkContainer } from 'react-router-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './nav.css'
 import logo from '../../img/logo.png'
-import ReactNavbar from "react-responsive-animate-navbar";
+import brbasound from '../../sound/brbasound.mp3'
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import Player from './Player'
 
 const Header = () => {
   return (
     <div>
-
       <Navbar collapseOnSelect expand="lg" variant="dark" className="navigacija">
         <Container>
           <LinkContainer to='/'>
@@ -21,23 +22,27 @@ const Header = () => {
           </LinkContainer>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav" >
-            <Nav className="mr-auto">
+            <Nav className="mr-auto" >
               <LinkContainer to='/'>
-                <Nav.Link className="nav-tekst">Home</Nav.Link>
+                <Nav.Link className="nav-tekst hvr-grow">HOME </Nav.Link>
               </LinkContainer>
+
               <LinkContainer to='/characters'>
-                <Nav.Link className="nav-tekst">Characters</Nav.Link>
+                <Nav.Link className="nav-tekst hvr-grow">CHARACTERS </Nav.Link>
               </LinkContainer>
               <LinkContainer to='/episodes'>
-                <Nav.Link className="nav-tekst">Episodes</Nav.Link>
+                <Nav.Link className="nav-tekst hvr-grow">EPISODES </Nav.Link>
               </LinkContainer>
             </Nav>
-            <Nav>
-              <Nav.Link href="#deets">More deets</Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
-                Dank memes
-          </Nav.Link>
-            </Nav>
+
+            <Navbar.Text style={{ color: 'rgba(0, 230, 64, 1)' }}>
+              PLAY ME
+            </Navbar.Text>
+
+            <ArrowForwardIosIcon color="secondary" fontSize="large" >PLAY ME</ArrowForwardIosIcon>
+            <Player url={brbasound} />
+
+
           </Navbar.Collapse>
         </Container>
       </Navbar>
