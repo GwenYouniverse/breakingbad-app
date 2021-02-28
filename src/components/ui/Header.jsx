@@ -35,7 +35,7 @@ const Header = () => {
               </LinkContainer>
             </Nav>
 
-            <Navbar.Text style={{ color: 'rgba(0, 230, 64, 1)' }}>
+            <Navbar.Text style={{ color: 'rgb(17, 182, 17) ' }}>
               PLAY ME
             </Navbar.Text>
 
